@@ -1,0 +1,1 @@
+# Blocking-Claude-Code-rights
