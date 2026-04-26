@@ -13,6 +13,7 @@ if ! grep -Fxq "$CURRENT_DIR" "$ALLOWED_FILE"; then
     echo "Папката '$CURRENT_DIR' не е в списъка с разрешени."
     exit 1
 fi
+
 if [ -f "$CURRENT_DIR/venv/bin/python" ]; then                                                                                                                                            
       export PYTHON="./venv/bin/python"
   else                                                                                                                                                                                        
@@ -42,7 +43,10 @@ localtime,timezone \
     --blacklist=/opt \
     --blacklist=/snap \
     --blacklist=/root \
+    --blacklist="${CURRENT_DIR}/.svn" \
     --blacklist=*.svn \
+    --blacklist="$CURRENT_DIR/.idea" \
+    --blacklist="*/.idea" \
     --blacklist=/run/user \
     --blacklist=/var/log \
     --blacklist=/var/lib \
