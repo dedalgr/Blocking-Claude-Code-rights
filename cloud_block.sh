@@ -27,7 +27,7 @@ exec firejail \
     --private-dev \
     --private-etc=ssl,ca-certificates.conf,ca-certificates,\
 resolv.conf,hosts,hostname,nsswitch.conf,\
-ld.so.conf,ld.so.conf.d,ld.so.cache,\
+ld.so.conf,ld.so.conf.d,ld.so.cache,localtime,timezone,passwd\
 localtime,timezone \
     --read-only=/usr \
     --read-only=/bin \
@@ -55,6 +55,7 @@ localtime,timezone \
     --blacklist=/var/mail \
     --blacklist=/var/backups \
     --blacklist=/proc/sysrq-trigger \
+    --env="PYTHON=$PYTHON" \
     --nosound \
     --no3d \
     --nodvd \
